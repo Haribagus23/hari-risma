@@ -1,0 +1,105 @@
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8c8;
+  --accent-purple: #a855f7;
+  --accent-pink: #ec4899;
+  --accent-blue: #3b82f6;
+}
+
+[data-theme='light'] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #6c7293;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+[data-theme='light'] body {
+  background: linear-gradient(135deg, #fef3f8 0%, #e9e4f0 100%);
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #9333ea, #db2777);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: var(--text-primary);
+}
+
+/* Smooth transitions for theme changes */
+*,
+*::before,
+*::after {
+  transition-property: background, color, border-color, box-shadow;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+}
+
+/* Preserve transform transitions */
+button,
+a,
+.card,
+.gallery-item,
+.dashboard-card {
+  transition-property: background, color, border-color, box-shadow, transform, opacity;
+}
+
+/* Ensure images don't transition */
+img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Global button reset */
+button {
+  font-family: inherit;
+}
+
+/* Global link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}

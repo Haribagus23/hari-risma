@@ -1,0 +1,145 @@
+.story-section {
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.story-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.4));
+}
+
+.story-chapters {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.story-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.story-chapter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-chapter.right {
+  direction: rtl;
+}
+
+.story-chapter.right > * {
+  direction: ltr;
+}
+
+.chapter-image-container {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.chapter-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.story-chapter:hover .chapter-image-wrapper {
+  transform: scale(1.05);
+}
+
+.chapter-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
+  border-radius: 20px;
+  opacity: 0.6;
+}
+
+.chapter-content {
+  position: relative;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-chapter:hover .glass-panel {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.2);
+}
+
+.chapter-number {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.chapter-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem;
+}
+
+.chapter-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .story-chapter {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .story-chapter.right {
+    direction: ltr;
+  }
+  
+  .chapter-image-container {
+    height: 400px;
+  }
+}
